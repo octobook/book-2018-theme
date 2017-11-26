@@ -1,2 +1,1 @@
-# jekyll-books-theme
-jekyll books theme
+# Jekyll Books Theme
