@@ -87,7 +87,7 @@ Onwards.
 
 {% for chapter in book.contents %}
 <div class="chapter">
-  <h1>{% if page.chapter_numbers %}{{forloop.index}}. {% end %}{{ chapter.title }}</h1>
+  <h1>{% if page.chapter_numbers %}{{forloop.index}}. {% endif %}{{ chapter.title }}</h1>
 
   <!-- add mini table of contents for chapter if available -->
   {% if chapter.sections %}
