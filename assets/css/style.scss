@@ -3,4 +3,20 @@
 ---
 
 
+// check for style props settings in _config.yml
+//   lets you overwrite fonts, colors, etc.
+
+{% if site.style %}
+  {% assign style = site.style %}
+
+  {% if style.font_family %}
+    $font-family:    {{ style.font_familiy }};
+  {% endif %}
+
+  {% if style.link_color %}
+    $link-color:     {{ style.link_color }};
+  {% endif %}
+{% endif %}
+
+
 @import 'jekyll-books-theme';
