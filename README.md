@@ -1,1 +1,1 @@
-# Jekyll Books Theme
+# Twenty Eighteen - Jekyll Books Theme
