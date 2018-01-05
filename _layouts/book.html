@@ -1,5 +1,5 @@
 ---
-layout: default_book
+layout: book.master
 ---
 
 
@@ -10,14 +10,21 @@ layout: default_book
 {% endif %}
 
 
-{% assign book = site.data[ page.book ].book %}
 
-<!-- used for (root path) to (relative) include  content pages
-       e.g. turn slideshow         into _slideshow
-            dr_jekyll_and_mr_hyde  into _dr-jekyll-and-mr-hyde
-            (e.g. convention use folder with underscore and convert _ to - for now)
- -->
-{% capture book_path %}_{{ page.book | replace: '_', '-' }}{% endcapture %}
+{% if page.book %}
+   {% assign book = site.data[ page.book ].book %}
+
+   <!-- used for (root path) to (relative) include  content pages
+          e.g. turn slideshow         into _slideshow
+               dr_jekyll_and_mr_hyde  into _dr-jekyll-and-mr-hyde
+               (e.g. convention use folder with underscore and convert _ to - for now)
+    -->
+   {% capture book_path %}_{{ page.book | replace: '_', '-' }}{% endcapture %}
+{% else %}
+   <!-- note: if no book id in page set/configured - use default _data/book.yml -->
+   {% assign book = site.data.book %}
+   {% assign book_path = 'manuscript' %}
+{% endif %}
 
 
 <!-- cover -->

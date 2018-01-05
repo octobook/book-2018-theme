@@ -1,0 +1,15 @@
+########
+# build settings
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+sass:
+  style: expanded
+
+exclude:
+- README.md
+- manuscript

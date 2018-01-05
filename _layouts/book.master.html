@@ -3,7 +3,13 @@
 <head>
   <meta charset="utf-8">
 
-  {% assign book = site.data[ page.book ].book %}
+  {% if page.book %}
+     {% assign book = site.data[ page.book ].book %}
+  {% else %}
+     <!-- note: if no book id in page set/configured - use default _data/book.yml -->
+     {% assign book = site.data.book %}
+  {% endif %}
+
 
   <title>{{ book.title }}</title>
     <!-- [[ book.title ]] by [[ book.author.name ]]
