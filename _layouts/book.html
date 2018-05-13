@@ -92,10 +92,26 @@ Onwards.
 
 <!-- chapters -->
 
+<!-- book chapters counter -->
+{% assign book_chapters = book.contents | size %}
+<!-- book_chapters: {{ book_chapters }} -->
+
+
 {% for chapter in book.contents %}
 <div class="chapter">
   <h1>{% if page.chapter_numbers %}{{forloop.index}}. {% endif %}{{ chapter.title }}</h1>
+  <!-- todo/fix: move page.chapter_numbers to
+       book.options.chapter.show_numbers = true !!!!
+    -->
 
+  
+{% if book_chapters == 1 %}
+   <!-- skip mini table of contents for now if only one chapter -->
+{% elsif book.options.chapter.hide_table_of_contents %}
+  <!-- check if multi-path access works if prop does NOT exist ?? -->
+  <!--   todo/check:  use a different prop eg. hide_toc or similar?? -->
+  <!-- skip mini table of contents -->
+{% else %}
   <!-- add mini table of contents for chapter if available -->
   {% if chapter.sections %}
   Contents
@@ -113,6 +129,7 @@ Onwards.
     {% endfor %}
   </ul>
   {% endif %}
+{% endif %}
 
 
  <!-- try adding content using include_relative -->
